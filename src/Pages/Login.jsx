@@ -9,7 +9,7 @@ const Login = () => {
         <div className="max-w-7xl mx-auto mt-20 flex items-center justify-center flex-col border p-20 w-[500px] rounded-xl bg-gray-100">
             <div className="text-5xl pb-10">Login Page</div>
             <div className=" flex items-center justify-center">
-                <TextField autoFocus
+                <TextField 
 
                     required
                     margin="dense"
@@ -41,7 +41,7 @@ const Login = () => {
                 />
             </div>
             <div className=" flex items-center justify-center">
-                <TextField autoFocus
+                <TextField 
 
                     required
                     // margin="dense"

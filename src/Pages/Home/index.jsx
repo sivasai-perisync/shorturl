@@ -1,4 +1,6 @@
 import React, { useState } from "react";
+import validator from 'validator'
+
 import Header from "../../Components/Header/Header";
 // import { rootUrl, tinyUrlToken } from "../constants";
 import { QRCodeCanvas } from "qrcode.react";
@@ -24,6 +26,16 @@ const Home = () => {
     const [loader, setLoader] = useState(false);
     // const [domain,setDomain]= useState(false)
     const [alias, setAlias] = useState(false)
+    const [errorMessage, setErrorMessage] = useState('')
+
+    const validate = (value) => {
+
+        if (validator.isURL(value)) {
+            setErrorMessage('Is Valid URL')
+        } else {
+            setErrorMessage('Is Not Valid URL')
+        }
+    }
     // const [time,setTime]=useState(false)
     const handleCreateShortUrl = async () => {
         setLoader(true);
@@ -43,10 +55,10 @@ const Home = () => {
         // } finally {
         //     setLoader(false);
         // }
-
         createShortUrlApi(data, setLoader, setShortUrl)
 
     };
+
 
 
     // fetch(`${rootUrl}/create`, {
@@ -225,16 +237,17 @@ const Home = () => {
                                             handleCreateShortUrl();
                                     }}
                                     value={input}
-                                    onChange={(e) => setInput(e.target.value)}
+                                    onChange={(e) => setInput(e.target.value) || validate(e.target.value)}
                                     placeholder="Enter long URL here"
-                                    className="border border-gray-200 p-4 rounded-xl w-full mb-8 focus:border-2 focus:outline-none focus:border-purple-500 hover:border-purple-500"
+                                    className="border border-gray-200 p-4 rounded-xl w-full  focus:border-2 focus:outline-none focus:border-purple-500 hover:border-purple-500"
                                     type="url"
                                 />
+                                <p className="text-red-400 text-sm pt-0 mb-8 text-start ml-2">{errorMessage}</p>
                             </div>
                             <div className="px-4">
                                 <input
                                     placeholder="Enter alias name (Optional)"
-                                    autoFocus
+
                                     className="border border-gray-200 p-4 rounded-xl w-full mb-8 focus:border-2 focus:outline-none focus:border-purple-500 hover:border-purple-500"
                                     margin="dense"
                                     id="name"
@@ -244,7 +257,8 @@ const Home = () => {
 
                                     variant="filled"
                                     onChange={(e) => setAlias(e.target.value)}
-                                /></div>
+                                />
+                            </div>
                             <hr className="text-gray-200" />
                             <div className="px-4 pb-4">
                                 <button

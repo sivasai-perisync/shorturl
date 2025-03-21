@@ -11,7 +11,7 @@ export const createShortUrlApi = (data, setLoader, setShortUrl) =>
         .then((response) => {
             setShortUrl(response?.data);
             console.log(response?.data);
-
+            localStorage.setItem('data', JSON.stringify(response?.data));
             setLoader(false);
         })
         .catch((error) => {
