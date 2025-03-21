@@ -19,17 +19,9 @@ const style = {
 
 
 
- };
+};
 
 const Header = () => {
-
-
-    
-	
-
-
-	
-
     const navigate = useNavigate();
     const [open, setOpen] = React.useState(false);
     const handleOpen = () => setOpen(true);
@@ -52,7 +44,7 @@ const Header = () => {
                     <div>Log in</div>
                 </button>
                 <button onClick={handleOpen} className="flex gap-2 hidden sm:flex items-center justify-center border px-2 py-2 rounded-lg bg-white">Sign in</button>
-                <button onClick={() => navigate("/myUrls")}  className="flex gap-2 hidden sm:flex items-center justify-center border px-2 py-2 rounded-lg bg-white">My Urls</button>
+                <button onClick={() => navigate("/myUrls")} className="flex gap-2 hidden sm:flex items-center justify-center border px-2 py-2 rounded-lg bg-white">My Urls</button>
 
             </div>
             <Modal
@@ -90,7 +82,7 @@ const Header = () => {
                     </div>
                 </Box>
             </Modal>
-          
+
         </div>
     )
 }
