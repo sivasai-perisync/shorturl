@@ -2,12 +2,10 @@ import React from "react";
 import { useNavigate } from "react-router-dom";
 import Modal from '@mui/material/Modal';
 import Box from '@mui/material/Box';
-// import { GoogleLogin } from "react-google-login";
-// import { GoogleLogout } from "react-google-login";
-// import { gapi } from "gapi-script";
+
 import { useEffect } from "react";
 import { useState } from "react";
-// const clientid = "289927151651-022cp7h28f84a6q6vemavmah5dj7shcu.apps.googleusercontent.com"
+
 const style = {
     position: 'absolute',
     top: '50%',
@@ -24,30 +22,10 @@ const style = {
  };
 
 const Header = () => {
-//     useEffect(() => {
-//         function start() {
-//             gapi.client.init({
-//                 clientId: clientid,
-//                 scope: ""
-//             })
-//         };
-//         gapi.load('client:auth2', start)
-//     }, [])
 
-    // var accessToken=gapi.auth.getToken().access_token;
-    // const onSucess = (res) => {
-    //     console.log("Login sucess", res.profileObj);
-
-    // }
-    // const onFailure = (res) => {
-    //     console.log("Login failed", res);
-    // }
-    // const onSucessLogout = () => {
-    //     console.log("Logout sucessful");
-    // }
 
     
-	// const [user, setUser] = useState();
+	
 
 
 	
@@ -112,24 +90,7 @@ const Header = () => {
                     </div>
                 </Box>
             </Modal>
-            {/* <div>
-                <GoogleLogin
-                    clientId={clientid}
-                    buttonText="Login"
-                    onSuccess={onSucess}
-                    onFailure={onFailure}
-                    cookiePolicy={'single_host_origin'}
-                    isSignedIn={true}
-                />
-            </div>
-            <div>
-                <GoogleLogout
-                    clientId={clientid}
-                    buttonText="Logout"
-                    onLogoutSuccess={onSucessLogout}
-
-                />
-            </div> */}
+          
         </div>
     )
 }
